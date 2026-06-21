@@ -1,6 +1,6 @@
 # 智能家居环境显示程序
 
-这是一个基于 Linux framebuffer 和串口传感器的智能家居显示程序。
+这是基于GEC6818的智能家居系统，通过GY93不断检测温度、湿度、气压、海拔数据，并在LCD上不断更新。
 
 ## 模块结构
 
@@ -13,20 +13,16 @@
 
 在 Linux 或交叉编译环境下执行：
 
-```bash
-make
-```
+arm-linux-gcc smart_home.c -o xxx.out -lm
 
-生成可执行文件 `smart_home`。
+生成可执行文件 `xxx.out`。
 
 ## 运行前提
 
 - 设备节点 `/dev/fb0` 可用
 - 设备节点 `/dev/ttySAC1` 可用
-- 当前目录下存在 `bg.bmp`
+- 当前目录下存在 `bg.bmp`(可自行在网上搜索图片进行更换，需将分辨率修改为800*480，否则可能报错segmentation fault）
 
 ## 清理
 
-```bash
-make clean
-```
+clear
